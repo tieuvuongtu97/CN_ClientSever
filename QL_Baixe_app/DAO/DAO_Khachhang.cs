@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,18 @@ namespace QL_Baixe_app.DAO
 
         public DAO_Khachhang() {}
 
-        public bool insertKH(string hoten, string sdt, string diachi, string socccd, string avt, DateTime ngaydk, string id_vt, int sodu, string mode_xe, string bienso)
+        public bool insertKH(string hoten, string sdt, string diachi, string socccd, string avt, string id_vt, int sodu, string mode_xe, string bienso)
         {
-            string query = string.Format("EXEC PR_DKKH_MOI @HOTENV ={0}, @SDT ={1}, @DIACHI ={2}, @SO_CCCD ={3}, @AVT ={4}, @ NGAY_DK ={5}, @ID_VE ={6}, @SODU ={7}, @MODE_XE ={8}, @BIENSO ={9}", hoten, sdt, diachi, socccd, avt, ngaydk, id_vt, sodu, mode_xe, bienso);
-            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query);
+            string query ="EXEC PR_DKKH_MOI @HOTEN , @SDT , @DIACHI , @SO_CCCD , @AVT , @ID_VE , @SODU , @MODE_XE , @BIENSO";
+            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { hoten, sdt, diachi, socccd, avt, id_vt, sodu, mode_xe, bienso});
             return kq > 0;
+        }
+
+        public DataTable DSKhachhang()
+        {
+            string query = "EXEC PR_DSKH_VEDK";
+            DataTable dt = DAO_DataProvider.Instance.ExcuteQuery(query);
+            return dt;
         }
 
     }

@@ -18,6 +18,7 @@ namespace QL_Baixe_app
             InitializeComponent();
 
             LoadVethang_RaCbx(cbxTheID);
+            LoadListKhachhang();
         }
 
         #region Method
@@ -28,20 +29,24 @@ namespace QL_Baixe_app
             cbx.DisplayMember = "ID";
         }
 
-        void AddKhachhang(string hoten, string sdt, string diachi, string socccd, string avt, DateTime ngaydk, string id_ve, int sodu, string mode_xe, string bienso)
+        void LoadListKhachhang()
         {
-            if (txbKhachhang.Text == "" || txbSdt.Text == "" || txbDiachi.Text == "" || txbCCCD.Text == "" || avt_openFileDialog1.FileName == "" || txbTien.Text == "" || txbModexe.Text == "" || txbBienso.Text == "")
-            {
-                MessageBox.Show("Nhập đầy đủ các TextBox", "ERROR!");
+            dgvDSKH.DataSource = DAO_Khachhang.Instance.DSKhachhang();
+        }
+
+        void BingdingKH()
+        {
+            try {              
+                txbKhachhang.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "HOTEN", true, DataSourceUpdateMode.Never));
+                txbBienso.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "BIENSO", true, DataSourceUpdateMode.Never));
+                txbSdt.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "SDT", true, DataSourceUpdateMode.Never));
+                txbDiachi.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "DIACHI", true, DataSourceUpdateMode.Never));
+                txbModexe.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "MODE_XE", true, DataSourceUpdateMode.Never));
+                txbTien.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "SODU", true, DataSourceUpdateMode.Never));
+                txbCCCD.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "SO_CCCD", true, DataSourceUpdateMode.Never));
+ 
             }
-            else
-            {
-                if (DAO_Khachhang.Instance.insertKH(hoten, sdt, diachi, socccd, avt, ngaydk, id_ve, sodu, mode_xe, bienso))
-                {
-                    MessageBox.Show("Thành công!", "THÔNG BÁO");
-                }
-                else MessageBox.Show("Không thành công", "LỖI!");
-            }
+            catch { }
         }
         #endregion
 
@@ -66,40 +71,81 @@ namespace QL_Baixe_app
             catch { }
         }
 
+        void ClearTextbox()
+        {
+            txbKhachhang.Clear();
+            txbSdt.Clear();
+            txbDiachi.Clear();
+            txbCCCD.Clear();
+            txbTien.Clear();
+            txbModexe.Clear();
+            txbBienso.Clear();
+            avt_openFileDialog1.FileName = "";
+        }
         #endregion
 
         private void frDangki_Load(object sender, EventArgs e)
         {
 
         }
-
+        bool thaotac;
         private void btnThem_Click(object sender, EventArgs e)
         {
-            try{            
-                 if (txbKhachhang.Text == "" || txbSdt.Text == "" || txbDiachi.Text == "" || txbCCCD.Text == "" || avt_openFileDialog1.FileName == "" || txbTien.Text == "" || txbModexe.Text == "" || txbBienso.Text == "")
+            thaotac = true;
+            ClearTextbox();
+            cbxTheID.Visible = true;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            thaotac = false;
+            BingdingKH();
+            cbxTheID.Visible = false;
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (thaotac == true) // thêm
+            {
+                try
                 {
-                    MessageBox.Show("Nhập đầy đủ các TextBox", "ERROR!");
-                }
-                else
-                {
-                    string hoten = txbKhachhang.Text;
-                    string sdt = txbSdt.Text;
-                    string diachi = txbDiachi.Text;
-                    string socccd = txbCCCD.Text;
-                    string avt = avt_openFileDialog1.FileName.ToString();
-                    DateTime ngaydk = DateTime.Now;
-                    string id_ve = (cbxTheID.SelectedItem as DTO_VeThang).Id.ToString();
-                    int sodu = Convert.ToInt32(txbTien.Text);
-                    string mode_xe = txbModexe.Text;
-                    string bienso = txbBienso.Text;
-                    if (DAO_Khachhang.Instance.insertKH(hoten, sdt, diachi, socccd, avt, ngaydk, id_ve, sodu, mode_xe, bienso))
+                    if (txbKhachhang.Text == "" || txbSdt.Text == "" || txbDiachi.Text == "" || txbCCCD.Text == "" || avt_openFileDialog1.FileName == "" || txbTien.Text == "" || txbModexe.Text == "" || txbBienso.Text == "")
                     {
-                        MessageBox.Show("Thành công!", "THÔNG BÁO");
+                        MessageBox.Show("Nhập đầy đủ các TextBox", "ERROR!");
                     }
-                    else MessageBox.Show("Không thành công", "LỖI!");
+                    else
+                    {
+                        string hoten = txbKhachhang.Text;
+                        string sdt = txbSdt.Text;
+                        string diachi = txbDiachi.Text;
+                        string socccd = txbCCCD.Text;
+                        string avt = avt_openFileDialog1.FileName.ToString();
+                        string id_ve = (cbxTheID.SelectedItem as DTO_VeThang).Id.ToString();
+                        int sodu = Convert.ToInt32(txbTien.Text);
+                        string mode_xe = txbModexe.Text;
+                        string bienso = txbBienso.Text;
+
+                        if (DAO_Khachhang.Instance.insertKH(hoten, sdt, diachi, socccd, avt, id_ve, sodu, mode_xe, bienso))
+                        {
+                            MessageBox.Show("Thành công!", "THÔNG BÁO");
+                        }
+                        else MessageBox.Show("Không thành công", "LỖI!");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(" Không Thành công!", "ERROR!");
                 }
             }
-            catch { }
+            else // sửa
+            {
+
+            }
         }
+
+       
     }
 }
