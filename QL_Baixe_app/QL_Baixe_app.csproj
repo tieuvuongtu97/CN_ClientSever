@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DAO_DataProvider.cs" />
+    <Compile Include="DAO\DAO_Khachhang.cs" />
+    <Compile Include="DAO\DAO_Vethang.cs" />
+    <Compile Include="DTO\DTO_Khachhang.cs" />
+    <Compile Include="DTO\DTO_VeThang.cs" />
     <Compile Include="frDangki.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,5 +112,15 @@
   <ItemGroup>
     <None Include="img\icons8-shutdown-80.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-support-30.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
