@@ -10,3 +10,15 @@ F:\K8\CN CLIENT_SERVER\QL_Baixe_app\QL_Baixe_app\obj\Debug\QL_Baixe_app.pdb
 F:\K8\CN CLIENT_SERVER\QL_Baixe_app\QL_Baixe_app\obj\Debug\QL_Baixe_app.frDangki.resources
 F:\K8\CN CLIENT_SERVER\QL_Baixe_app\QL_Baixe_app\obj\Debug\QL_Baixe_app.frLogin.resources
 F:\K8\CN CLIENT_SERVER\QL_Baixe_app\QL_Baixe_app\obj\Debug\QL_Baixe_app.frHome.resources
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\bin\Debug\QL_Baixe_app.exe.config
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\bin\Debug\QL_Baixe_app.exe
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\bin\Debug\QL_Baixe_app.pdb
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.csprojAssemblyReference.cache
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.frDangki.resources
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.frHome.resources
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.frLogin.resources
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.Properties.Resources.resources
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.csproj.GenerateResource.cache
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.csproj.CoreCompileInputs.cache
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.exe
+F:\K8\CN CLIENT_SERVER\CN_ClientSever\QL_Baixe_app\obj\Debug\QL_Baixe_app.pdb
