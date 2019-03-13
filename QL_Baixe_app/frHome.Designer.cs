@@ -30,11 +30,11 @@
         {
             this.btkhongcogi = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbAcc = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btn_qlve = new System.Windows.Forms.Button();
             this.btnThongke = new System.Windows.Forms.Button();
             this.btnDangky = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -60,15 +60,6 @@
             this.button3.TabIndex = 115;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(265, 358);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(280, 170);
-            this.button4.TabIndex = 116;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -113,6 +104,21 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // btn_qlve
+            // 
+            this.btn_qlve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_qlve.BackgroundImage = global::QL_Baixe_app.Properties.Resources.tải_xuống;
+            this.btn_qlve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_qlve.ForeColor = System.Drawing.Color.Red;
+            this.btn_qlve.Location = new System.Drawing.Point(265, 358);
+            this.btn_qlve.Name = "btn_qlve";
+            this.btn_qlve.Size = new System.Drawing.Size(280, 170);
+            this.btn_qlve.TabIndex = 116;
+            this.btn_qlve.Text = "quản lý vé";
+            this.btn_qlve.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_qlve.UseVisualStyleBackColor = false;
+            this.btn_qlve.Click += new System.EventHandler(this.btn_qlve_Click);
+            // 
             // btnThongke
             // 
             this.btnThongke.BackgroundImage = global::QL_Baixe_app.Properties.Resources.icons8_account_80;
@@ -148,7 +154,7 @@
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btn_qlve);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnThongke);
             this.Controls.Add(this.btnDangky);
@@ -168,7 +174,7 @@
         private System.Windows.Forms.Button btnDangky;
         private System.Windows.Forms.Button btnThongke;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_qlve;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;

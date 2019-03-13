@@ -30,5 +30,12 @@ namespace QL_Baixe_app
             this.Hide();
             dk.ShowDialog();
         }
+
+        private void btn_qlve_Click(object sender, EventArgs e)
+        {
+            frqlve f = new frqlve();
+            this.Hide();
+            f.ShowDialog();
+        }
     }
 }
