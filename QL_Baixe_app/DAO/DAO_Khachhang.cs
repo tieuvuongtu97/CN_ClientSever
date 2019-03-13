@@ -25,10 +25,23 @@ namespace QL_Baixe_app.DAO
         public bool insertKH(string hoten, string sdt, string diachi, string socccd, string avt, string id_vt, int sodu, string mode_xe, string bienso)
         {
             string query ="EXEC PR_DKKH_MOI @HOTEN , @SDT , @DIACHI , @SO_CCCD , @AVT , @ID_VE , @SODU , @MODE_XE , @BIENSO";
-            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { hoten, sdt, diachi, socccd, avt, id_vt, sodu, mode_xe, bienso});
+            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { hoten , sdt , diachi , socccd , avt , id_vt , sodu , mode_xe , bienso });
             return kq > 0;
         }
 
+        public string GetIdKhachhangbyCCCD(string cccd)
+        {
+            string query = "EXEC PR_GET_ID_KH @CCCD";
+            string idkh = DAO_DataProvider.Instance.ExcuteScalar(query, new object[] { cccd }).ToString();
+            return idkh;
+        }
+
+        //public bool editKH(string hoten, string sdt, string diachi, string socccd, string avt, int sodu, string mode_xe, string bienso)
+        //{
+        //    string query = "ex";
+        //    int kq = ;
+        //    return kq > 0;
+        //}
         public DataTable DSKhachhang()
         {
             string query = "EXEC PR_DSKH_VEDK";
@@ -36,5 +49,14 @@ namespace QL_Baixe_app.DAO
             return dt;
         }
 
+        public DataTable DSKhachhang_Page(int page, int pagesize)
+        {          
+            return DAO_DataProvider.Instance.ExcuteQuery("EXEC PR_DSKH_VEDK_IN_PAGE @PAGE , @PAGE_SIZE", new object[] { page , pagesize});
+        }
+
+        public int TongKh()
+        {
+            return (int)DAO_DataProvider.Instance.ExcuteScalar("EXEC PR_TONG_KH");
+        }
     }
 }

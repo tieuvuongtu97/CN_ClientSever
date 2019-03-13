@@ -20,7 +20,8 @@ namespace QL_Baixe_app
             LoadVethang_RaCbx(cbxTheID);
             LoadListKhachhang();
         }
-
+        int pageSize = 8;
+        int page = 1;
         #region Method
 
         void LoadVethang_RaCbx(ComboBox cbx)
@@ -31,9 +32,20 @@ namespace QL_Baixe_app
 
         void LoadListKhachhang()
         {
-            dgvDSKH.DataSource = DAO_Khachhang.Instance.DSKhachhang();
-        }
+            //dgvDSKH.DataSource = DAO_Khachhang.Instance.DSKhachhang();
+            int tongkh = DAO_Khachhang.Instance.TongKh();
+            int trangcuoi = tongkh / pageSize;
+            if (tongkh % pageSize != 0)
+                trangcuoi++;
+            txbNow.Text = page.ToString() + "/" + trangcuoi.ToString();
+            dgvDSKH.DataSource = DAO_Khachhang.Instance.DSKhachhang_Page(page , pageSize);
+            lbLuotkhach.Text = "Số khách: " + tongkh.ToString();
+         }
 
+        void GetIdKhachhang()
+        {
+
+        }
         void BingdingKH()
         {
             try {              
@@ -44,9 +56,21 @@ namespace QL_Baixe_app
                 txbModexe.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "MODE_XE", true, DataSourceUpdateMode.Never));
                 txbTien.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "SODU", true, DataSourceUpdateMode.Never));
                 txbCCCD.DataBindings.Add(new Binding("text", dgvDSKH.DataSource, "SO_CCCD", true, DataSourceUpdateMode.Never));
- 
+               
             }
             catch { }
+        }
+
+        void ClearTextbox()
+        {
+            txbKhachhang.Clear();
+            txbSdt.Clear();
+            txbDiachi.Clear();
+            txbCCCD.Clear();
+            txbTien.Clear();
+            txbModexe.Clear();
+            txbBienso.Clear();
+            avt_openFileDialog1.FileName = "";
         }
         #endregion
 
@@ -71,23 +95,10 @@ namespace QL_Baixe_app
             catch { }
         }
 
-        void ClearTextbox()
-        {
-            txbKhachhang.Clear();
-            txbSdt.Clear();
-            txbDiachi.Clear();
-            txbCCCD.Clear();
-            txbTien.Clear();
-            txbModexe.Clear();
-            txbBienso.Clear();
-            avt_openFileDialog1.FileName = "";
-        }
+       
         #endregion
 
-        private void frDangki_Load(object sender, EventArgs e)
-        {
-
-        }
+      
         bool thaotac;
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -101,6 +112,8 @@ namespace QL_Baixe_app
             thaotac = false;
             BingdingKH();
             cbxTheID.Visible = false;
+            string cccd = txbCCCD.ToString();
+          //  string idkh = DAO_Khachhang.Instance.GetIdKhachhangbyCCCD(cccd);
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -111,7 +124,7 @@ namespace QL_Baixe_app
             if (thaotac == true) // thêm
             {
                 try
-                {
+                {              
                     if (txbKhachhang.Text == "" || txbSdt.Text == "" || txbDiachi.Text == "" || txbCCCD.Text == "" || avt_openFileDialog1.FileName == "" || txbTien.Text == "" || txbModexe.Text == "" || txbBienso.Text == "")
                     {
                         MessageBox.Show("Nhập đầy đủ các TextBox", "ERROR!");
@@ -146,6 +159,35 @@ namespace QL_Baixe_app
             }
         }
 
-       
+        private void btnDau_Click(object sender, EventArgs e)
+        {
+            page = 1;
+            LoadListKhachhang();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {     
+            if (page > 1)
+                page = page -1;
+            LoadListKhachhang();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int tongkh = DAO_Khachhang.Instance.TongKh();
+            if (page * pageSize < tongkh)
+                page = page +1;
+            LoadListKhachhang();
+        }
+
+        private void btnCuoi_Click(object sender, EventArgs e)
+        {
+            int tongkh = DAO_Khachhang.Instance.TongKh();
+            int trangcuoi = tongkh / pageSize;
+            if (tongkh % pageSize != 0)
+                trangcuoi++;
+            page = trangcuoi;
+            LoadListKhachhang();
+        }
     }
 }
