@@ -47,10 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\DAO_DataProvider.cs" />
+    <Compile Include="DAO\DAO_Vengay.cs" />
+    <Compile Include="DAO\DAO_Vethang.cs" />
     <Compile Include="DAO\vedao.cs" />
-    <Compile Include="DTO\vengay.cs" />
-    <Compile Include="DTO\vethang.cs" />
+    <Compile Include="DAO\DAO_Khachhang.cs" />
+    <Compile Include="DTO\DTO_Khachhang.cs" />
+    <Compile Include="DTO\DTO_VeNgay.cs" />
+    <Compile Include="DTO\DTO_VeThang.cs" />
     <Compile Include="frDangki.cs">
       <SubType>Form</SubType>
     </Compile>

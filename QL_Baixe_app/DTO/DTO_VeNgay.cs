@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace QL_Baixe_app.dto
 {
-    public class vengay
+    public class DTO_VeNgay
     {
-        public vengay(string id, bool trangthai)
+        public DTO_VeNgay(string id, bool trangthai)
         {
             this.Id = id;
             this.Trangthai = trangthai;
         }
 
-        public vengay(DataRow row)
+        public DTO_VeNgay(DataRow row)
         {
             this.Id = row["ID"].ToString();
             this.Trangthai = (bool)row["TRANGTHAI"];

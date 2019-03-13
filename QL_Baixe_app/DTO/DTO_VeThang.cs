@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace QL_Baixe_app.dto
 {
-    public class vethang
+    public class DTO_VeThang
     {
-        public vethang(string id, int sodu, string mode_xe, string bienso, string khachhang_id, bool trangthai)
+        public DTO_VeThang(string id, int sodu, string mode_xe, string bienso, string khachhang_id, bool trangthai)
         {
             this.Id = id;
             this.Sodu = sodu;
@@ -19,7 +19,7 @@ namespace QL_Baixe_app.dto
             this.Trangthai = trangthai;
         }
 
-        public vethang(DataRow row)
+        public DTO_VeThang(DataRow row)
         {
             this.Id = row["ID"].ToString();
             this.Sodu = (int)row["SODU"];

@@ -32,7 +32,7 @@ namespace QL_Baixe_app
             string mv = textBox1.Text;
             if (mv.Contains(mave))
             {
-                bool t = vedao.Instance.themvengay(mv, trangthai);
+                bool t = DAO_Vengay.Instance.themvengay(mv, trangthai);
                 if (t)
                 {
                     MessageBox.Show("Thêm vn thành công");
@@ -46,7 +46,7 @@ namespace QL_Baixe_app
 
             if (mv.Contains(mave1))
             {
-                bool t= vedao.Instance.themvethang(mv, sodu, modexe, bienso, trangthai);
+                bool t= DAO_Vethang.Instance.themvethang(mv, sodu, modexe, bienso, trangthai);
                 if (t)
                 {
                     MessageBox.Show("Thêm vt thành công");
