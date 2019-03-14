@@ -49,6 +49,7 @@
             this.btkhongcogi.Name = "btkhongcogi";
             this.btkhongcogi.Size = new System.Drawing.Size(1054, 40);
             this.btkhongcogi.TabIndex = 112;
+            this.btkhongcogi.TabStop = false;
             this.btkhongcogi.Text = "HỆ THỐNG QUẢN LÍ BÃI GỬI XE";
             this.btkhongcogi.UseVisualStyleBackColor = false;
             // 
@@ -57,7 +58,7 @@
             this.button3.Location = new System.Drawing.Point(623, 358);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(280, 170);
-            this.button3.TabIndex = 115;
+            this.button3.TabIndex = 4;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -66,7 +67,7 @@
             this.button4.Location = new System.Drawing.Point(265, 358);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(280, 170);
-            this.button4.TabIndex = 116;
+            this.button4.TabIndex = 3;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -109,21 +110,20 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(82, 31);
             this.btnLogout.TabIndex = 117;
+            this.btnLogout.TabStop = false;
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnThongke
             // 
-            this.btnThongke.BackgroundImage = global::QL_Baixe_app.Properties.Resources.icons8_account_80;
             this.btnThongke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnThongke.ForeColor = System.Drawing.Color.Red;
+            this.btnThongke.ForeColor = System.Drawing.Color.Black;
             this.btnThongke.Location = new System.Drawing.Point(623, 136);
             this.btnThongke.Name = "btnThongke";
             this.btnThongke.Size = new System.Drawing.Size(280, 170);
-            this.btnThongke.TabIndex = 114;
-            this.btnThongke.Text = "Thống kê";
-            this.btnThongke.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnThongke.TabIndex = 2;
+            this.btnThongke.Text = "button2";
             this.btnThongke.UseVisualStyleBackColor = true;
             // 
             // btnDangky
@@ -134,7 +134,7 @@
             this.btnDangky.Location = new System.Drawing.Point(265, 136);
             this.btnDangky.Name = "btnDangky";
             this.btnDangky.Size = new System.Drawing.Size(280, 170);
-            this.btnDangky.TabIndex = 113;
+            this.btnDangky.TabIndex = 1;
             this.btnDangky.Text = "Đăng kí khách hàng";
             this.btnDangky.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDangky.UseVisualStyleBackColor = true;

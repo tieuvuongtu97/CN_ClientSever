@@ -240,20 +240,20 @@
             // 
             // btnThem
             // 
-            this.btnThem.BackgroundImage = global::QL_Baixe_app.Properties.Resources.icons8_plus_481;
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThem.Location = new System.Drawing.Point(19, 28);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(115, 33);
             this.btnThem.TabIndex = 10;
             this.btnThem.TabStop = false;
+            this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
             this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSua.Location = new System.Drawing.Point(19, 72);
+            this.btnSua.Location = new System.Drawing.Point(19, 71);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(115, 33);
             this.btnSua.TabIndex = 17;
