@@ -144,6 +144,7 @@ namespace QL_Baixe_app
         {
             page = 1;
             LoadListKhachhang();
+            BingdingKH();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -151,6 +152,7 @@ namespace QL_Baixe_app
             if (page > 1)
                 page = page - 1;
             LoadListKhachhang();
+            BingdingKH();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -159,6 +161,7 @@ namespace QL_Baixe_app
             if (page * pageSize < tongkh)
                 page = page + 1;
             LoadListKhachhang();
+            BingdingKH();
         }
 
         private void btnCuoi_Click(object sender, EventArgs e)
@@ -169,14 +172,16 @@ namespace QL_Baixe_app
                 trangcuoi++;
             page = trangcuoi;
             LoadListKhachhang();
+            BingdingKH();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             thaotac = false;
-            BingdingKH();
+         
             EnableTextbox();
             cbxTheID.Enabled = false;
+            BingdingKH();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -194,6 +199,7 @@ namespace QL_Baixe_app
                     if (DAO_Khachhang.Instance.delKH(id))
                     {
                         MessageBox.Show(String.Format("Xóa thành công Khách Hàng có mã {0}", id, "Thành Công!"));
+                        ClearTextbox();
                     }
                 }
                 LoadListKhachhang();
@@ -229,10 +235,8 @@ namespace QL_Baixe_app
                         }
                         i++;
                     }
-                    cbxTheID.SelectedIndex = index;
-             
+                    cbxTheID.SelectedIndex = index;            
                 }
-
             }
             catch { }
         }
@@ -259,10 +263,23 @@ namespace QL_Baixe_app
                         string mode_xe = txbModexe.Text;
                         string bienso = txbBienso.Text;
 
-                        if (DAO_Khachhang.Instance.insertKH(hoten, sdt, diachi, socccd, avt, id_ve, sodu, mode_xe, bienso))
+                        if (sdt.Length > 10)
+                        {
+                            MessageBox.Show(" Số điện thoại tối đa 10 số!", "THÔNG BÁO");
+                        }
+                        else if (socccd.Length > 12)
+                        {
+                            MessageBox.Show(" Số CCCD tối đa 12 số!", "THÔNG BÁO");
+                        }
+                        else if (bienso.Length > 10)
+                        {
+                            MessageBox.Show(" Biển số tối đa 10 kí tự!", "THÔNG BÁO");
+                        }
+                        else if (DAO_Khachhang.Instance.insertKH(hoten, sdt, diachi, socccd, avt, id_ve, sodu, mode_xe, bienso))
                         {
                             MessageBox.Show("Thành công!", "THÔNG BÁO");
                             LoadListKhachhang();
+                            BingdingKH();
                         }
                                                   
                     }
@@ -291,11 +308,24 @@ namespace QL_Baixe_app
                         int sodu =Convert.ToInt32(txbTien.Text);
                         string modexe = txbModexe.Text;
                         string bienso = txbBienso.Text;
-                    
-                        if (DAO_Khachhang.Instance.editKH(veid, hoten, sdt, diachi, socccd, avt, sodu, modexe, bienso))
+                        if (sdt.Length > 10)
+                        {
+                            MessageBox.Show(" Số điện thoại tối đa 10 số!", "THÔNG BÁO");
+                        }
+                        else if (socccd.Length > 12)
+                        {
+                            MessageBox.Show(" Số CCCD tối đa 12 số!", "THÔNG BÁO");
+                        }
+                        else if (bienso.Length > 10)
+                        {
+                            MessageBox.Show(" Biển số tối đa 10 kí tự!", "THÔNG BÁO");
+                        }
+                        else
+                       if (DAO_Khachhang.Instance.editKH(veid, hoten, sdt, diachi, socccd, avt, sodu, modexe, bienso))
                         {
                             MessageBox.Show(" Sửa thành công!", "THÔNG BÁO");
                             LoadListKhachhang();
+                            BingdingKH();
                         }
                     }
                 }
