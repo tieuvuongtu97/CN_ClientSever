@@ -22,6 +22,7 @@ namespace QL_Baixe_app
             frHome d = new frHome();
             this.Hide();
             d.ShowDialog();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
