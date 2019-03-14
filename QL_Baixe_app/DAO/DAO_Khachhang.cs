@@ -25,7 +25,21 @@ namespace QL_Baixe_app.DAO
         public bool insertKH(string hoten, string sdt, string diachi, string socccd, string avt, string id_vt, int sodu, string mode_xe, string bienso)
         {
             string query ="EXEC PR_DKKH_MOI @HOTEN , @SDT , @DIACHI , @SO_CCCD , @AVT , @ID_VE , @SODU , @MODE_XE , @BIENSO";
-            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { hoten , sdt , diachi , socccd , avt , id_vt , sodu , mode_xe , bienso });
+            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { hoten ,sdt ,diachi ,socccd ,avt ,id_vt ,sodu ,mode_xe ,bienso});
+            return kq > 0;
+        }    
+
+        public bool editKH(string veid, string hoten, string sdt, string diachi, string socccd, string avt, int sodu, string mode_xe, string bienso)
+        {
+            string query = "EXEC PR_EDIT_KH @VE_ID , @HOTEN , @SDT , @DIACHI , @SO_CCCD , @AVT , @SODU , @MODE_XE , @BIENSO";
+            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { veid ,hoten ,sdt ,diachi ,socccd ,avt ,sodu ,mode_xe ,bienso});
+            return kq > 0;
+        }
+
+        public bool delKH(string id)
+        {
+            string query = "EXEC PR_DEL_KH @ID";
+            int kq = DAO_DataProvider.Instance.ExcuteNonQuery(query, new object[] { id});
             return kq > 0;
         }
 
@@ -35,13 +49,6 @@ namespace QL_Baixe_app.DAO
             string idkh = DAO_DataProvider.Instance.ExcuteScalar(query, new object[] { cccd }).ToString();
             return idkh;
         }
-
-        //public bool editKH(string hoten, string sdt, string diachi, string socccd, string avt, int sodu, string mode_xe, string bienso)
-        //{
-        //    string query = "ex";
-        //    int kq = ;
-        //    return kq > 0;
-        //}
         public DataTable DSKhachhang()
         {
             string query = "EXEC PR_DSKH_VEDK";

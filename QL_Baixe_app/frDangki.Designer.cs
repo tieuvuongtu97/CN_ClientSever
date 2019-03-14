@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbKhachhang = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -357,6 +357,7 @@
             this.txbBienso.Name = "txbBienso";
             this.txbBienso.Size = new System.Drawing.Size(212, 26);
             this.txbBienso.TabIndex = 9;
+            this.txbBienso.TextChanged += new System.EventHandler(this.txbBiensoChanged);
             // 
             // groupBox2
             // 
@@ -387,12 +388,13 @@
             this.dgvDSKH.Size = new System.Drawing.Size(941, 199);
             this.dgvDSKH.TabIndex = 0;
             this.dgvDSKH.TabStop = false;
+            this.dgvDSKH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSKH_CellContentClick);
             // 
             // HOTEN
             // 
             this.HOTEN.DataPropertyName = "HOTEN";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.HOTEN.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.HOTEN.DefaultCellStyle = dataGridViewCellStyle1;
             this.HOTEN.HeaderText = "Khách hàng";
             this.HOTEN.Name = "HOTEN";
             this.HOTEN.Width = 120;
